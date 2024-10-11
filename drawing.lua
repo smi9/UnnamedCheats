@@ -230,7 +230,7 @@ do
 					create("UIStroke", {
 						Name = "_stroke",
 						Color = _color3new(),
-						Thickness = 1
+						Thickness = 1,
 					})
 				})
 			}, circle);
@@ -468,7 +468,8 @@ do
 					create("UIStroke", {
 						Name = "_stroke",
 						Color = _color3new(),
-						Thickness = 1
+						Thickness = 1,
+						LineJoinMode = Enum.LineJoinMode.Miter;
 					})
 				})
 			}, square);
@@ -534,7 +535,8 @@ do
 		function square:_updateScale()
 			local props = self._properties;
 			self._frame.Position = _udim2fromoffset(props.Position.X + props.Thickness, props.Position.Y + props.Thickness);
-			self._frame.Size = _udim2fromoffset(props.Size.X - props.Thickness * 2, props.Size.Y - props.Thickness * 2);
+			local thickness = props.Thickness;
+			self._frame.Size = _udim2fromoffset(props.Size.X - thickness * 2, props.Size.Y - thickness * 2);
 		end
 
 		square.Remove = square.Destroy;
